@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Home Page</title>
+  <meta charset="UTF-8">
+  <title>Color Theme Switcher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav {
+      background-color: #444;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: block;
+    }
+    nav a:hover {
+      background-color: #555;
+    }
+    .main {
+      padding: 40px;
+      text-align: center;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+  
+    :root {
+      --main-color: #3498db;
+      --bg-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 0px;
+    }
+
+    .color-picker {
+      margin: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      background-color: var(--main-color);
+      color: white;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to My Website</h1>
+  </header>
+
+  <nav>
+    <a href="#">HOME</a>
+    <a href="OPEN.HTML">ABOUT</a>
+    <a href="SERVICE.HTML">SERVICE</a>
+    <a href="LOGIN.HTML">LOGIN</a>
+    <a href="CONTACT.HTML">CONTACT</a>
+  </nav>
+
+  <div class="main">
+    <h2>Hello, I'm Karunagaran 👋</h2>
+    <p>This is a simple home page created using HTML and CSS. You can add more sections like gallery, testimonials, or blog posts as needed.</p>
+  </div>
+    <h1>🎨 Theme Customizer</h1>
+  <input type="color" class="color-picker" id="colorInput">
+  <br>
+  <button class="btn" onclick="applyColor()">Apply Color</button>
+  <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+
+  <script>
+    function applyColor() {
+      const color = document.getElementById('colorInput').value;
+      document.documentElement.style.setProperty('--main-color', color);
+      document.querySelectorAll('.btn').forEach(btn => {
+        btn.style.backgroundColor = color;
+      });
+    }
+
+    function toggleTheme() {
+      const currentBg = getComputedStyle(document.documentElement)
+        .getPropertyValue('--bg-color').trim();
+
+      if (currentBg === '#ffffff') {
+        document.documentElement.style.setProperty('--bg-color', '#222');
+        document.documentElement.style.setProperty('--text-color', '#eee');
+      } else {
+        document.documentElement.style.setProperty('--bg-color', '#ffffff');
+        document.documentElement.style.setProperty('--text-color', '#000000');
+      }
+    }
+  </script>
+  
+
+
+  <footer>
+    <p>&copy; 2025 Karunagaran. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Karunagaran's Theme Switcher</title>
+  <style>
+    :root {
+      --main-color: #3498db;
+      --bg-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      transition: all 0.3s ease;
+    }
+
+    .btn, .mood-btn {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      background-color: var(--main-color);
+      color: white;
+      font-weight: bold;
+    }
+
+    .preview-card {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: var(--main-color);
+      color: white;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Welcome back, Karunagaran!</h1>
+  <p>Customize your vibe below 👇</p>
+
+  <input type="color" id="colorInput" class="btn">
+  <button class="btn" onclick="applyColor()">Apply Color</button>
+  <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+
+  <div>
+    <button class="mood-btn" onclick="setMood('energetic')">⚡ Energetic</button>
+    <button class="mood-btn" onclick="setMood('calm')">🌿 Calm</button>
+    <button class="mood-btn" onclick="setMood('festive')">🎉 Festive</button>
+  </div>
+
+  <div class="preview-card">
+    <h2>Live Preview</h2>
+    <p>This is how your theme looks!</p>
+  </div>
+
+  <script>
+    function applyColor() {
+      const color = document.getElementById('colorInput').value;
+      document.documentElement.style.setProperty('--main-color', color);
+      document.querySelectorAll('.btn, .mood-btn, .preview-card').forEach(el => {
+        el.style.backgroundColor = color;
+      });
+      localStorage.setItem('themeColor', color);
+    }
+
+    function toggleTheme() {
+      const currentBg = getComputedStyle(document.documentElement)
+        .getPropertyValue('--bg-color').trim();
+
+      if (currentBg === '#ffffff') {
+        document.documentElement.style.setProperty('--bg-color', '#1e1e1e');
+        document.documentElement.style.setProperty('--text-color', '#f0f0f0');
+      } else {
+        document.documentElement.style.setProperty('--bg-color', '#ffffff');
+        document.documentElement.style.setProperty('--text-color', '#000000');
+      }
+    }
+
+    function setMood(mood) {
+      let color;
+      switch(mood) {
+        case 'energetic': color = '#e74c3c'; break;
+        case 'calm': color = '#2ecc71'; break;
+        case 'festive': color = '#f39c12'; break;
+      }
+      document.documentElement.style.setProperty('--main-color', color);
+      document.querySelectorAll('.btn, .mood-btn, .preview-card').forEach(el => {
+        el.style.backgroundColor = color;
+      });
+      localStorage.setItem('themeColor', color);
+    }
+
+    // Load saved theme
+    window.onload = () => {
+      const savedColor = localStorage.getItem('themeColor');
+      if (savedColor) {
+        document.documentElement.style.setProperty('--main-color', savedColor);
+        document.querySelectorAll('.btn, .mood-btn, .preview-card').forEach(el => {
+          el.style.backgroundColor = savedColor;
+        });
+      }
+    };
+  </script>
+</body>
+</html>

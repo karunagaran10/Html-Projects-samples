@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        
+
+
+.counter {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+#count {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 18px;
+}
+/* style.css */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.app-container {
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+}
+.role-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #0077cc;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.role-buttons button:hover {
+  background-color: #005fa3;
+}
+#roleContent {
+  margin-top: 20px;
+}
+
+</style>
+<body>
+
+
+<div ><p>
+<form action="/action_page.php">
+ <fieldset>
+  <legend>Personalia:</legend>
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday"><br><br>
+  <input type="submit" value="Submit">
+ </fieldset>
+</form>
+</p>
+</div>
+<!-- HTML -->
+<div class="counter">
+  <h1 id="count">0</h1>
+  <div class="buttons">
+    <button onclick="decrease()">-</button>
+    <button onclick="reset()">Reset</button>
+    <button onclick="increase()">+</button>
+  </div>
+</div>
+<div class="app-container">
+    <h1>Welcome to Role Ready</h1>
+    <p>Select your tech role to begin interview prep:</p>
+
+    <div class="role-buttons">
+      <button onclick="loadRole('frontend')">Frontend Developer</button>
+      <button onclick="loadRole('backend')">Backend Developer</button>
+      <button onclick="loadRole('fullstack')">Full Stack Engineer</button>
+    </div>
+
+    <div id="roleContent"></div>
+    </div>
+
+<script>
+    // JavaScript
+let count = 0;
+
+function updateDisplay() {
+  const countElement = document.getElementById("count");
+  countElement.textContent = count;
+  countElement.style.color = count > 0 ? "green" : count < 0 ? "red" : "black";
+}
+
+function increase() {
+  count++;
+  updateDisplay();
+}
+
+function decrease() {
+  count--;
+  updateDisplay();
+}
+
+function reset() {
+  count = 0;
+  updateDisplay();
+}
+
+updateDisplay();
+</script>
+<script>
+function loadRole(role) {
+  let content = '';
+  if (role === 'frontend') {
+    content = `
+      <h2>Frontend Interview Prep</h2>
+      <ul>
+        <li>What is the Virtual DOM?</li>
+        <li>Explain event delegation in JavaScript.</li>
+        <li>CSS Grid vs Flexbox-when to use what?</li>
+      </ul>
+    `;
+  } else if (role === 'backend') {
+    content = `
+      <h2>Backend Interview Prep</h2>
+      <ul>
+        <li>What is RESTful API?</li>
+        <li>Database normalization-why is it important?</li>
+        <li>How do JWT tokens work?</li>
+      </ul>
+    `;
+  }
+}
+</script>
+</body>
+</html>

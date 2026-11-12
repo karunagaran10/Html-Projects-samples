@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UYIRE THAGACHI</title>
+  <style>
+    body {
+      background-image: url("sis2.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      animation: bgZoom 10s ease-in-out infinite alternate;
+      margin: 0;
+      font-family: courier, monospace;
+    }
+    @keyframes bgZoom {
+      from { background-size: 100% 100%; }
+      to { background-size: 110% 110%; }
+    }
+    h1 {
+      color: lch(65.64% 38.74 235.87 / 0.989);
+      font-size: 2em;
+      margin: 0.5em 0 0.2em 0;
+      text-shadow: 2px 2px 8px #fff;
+    }
+    h2 {
+      color: gray;
+      font-size: 1.5em;
+      text-align: center;
+      margin-top: 1em;
+      margin-bottom: 2em;
+      letter-spacing: 2px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+    }
+    .card {
+      width: 320px;
+      background: rgba(255,255,255,0.7);
+      border: 6px solid;
+      border-image: linear-gradient(35deg, rgb(21,135,227), rgb(245,2,2), rgb(106,6,237)) 1;
+      border-radius: 15px;
+      box-shadow: 0 0 40px rgba(213,147,5,0.2);
+      padding: 1em;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 0 60px rgba(245,2,2,0.3);
+    }
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <h2>I LOVE MY THAGACHI. SHE WAS ALWAYS MY HAPPY</h2>
+ 
+  <div class="gallery">
+    <div class="card">
+      <img src="C:\Users\karunagaran v\Desktop\thagachi\BABY.JPEG" alt="YASASRI">
+      <h1>YASASRI</h1>
+    </div>
+    <div class="card">
+      <img src="C:\Users\karunagaran v\Desktop\thagachi\/ANGLE.JPEG" alt="ANGLE">
+      <h1>ANGLE</h1>
+    </div>
+    <div class="card">
+      <img src="C:\Users\karunagaran v\Desktop\thagachi\SARVI.JPG" alt="SERVAI">
+      <h1>SERVAI</h1>
+    </div>
+    <div class="card">
+      <img src="C:\Users\karunagaran v\Desktop\thagachi\Spandhana.JPEG" alt="SPANDHANA">
+      <h1>SPANDHANA</h1>
+    </div>
+  </div>
+</body>
+</html>
